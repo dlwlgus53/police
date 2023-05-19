@@ -45,9 +45,9 @@ parser.add_argument(
 )
 
 """data"""
-parser.add_argument("--dev_path", type=str, default="../POLICE_data/dev_data.json")
-parser.add_argument("--train_path", type=str, default="../POLICE_data/POLICE/train_data.json")
-parser.add_argument("--test_path", type=str, default="../POLICE_data/POLICE/dev_data.json")
+parser.add_argument("--train_path", type=str, default="../POLICE_data/train.json")
+parser.add_argument("--dev_path", type=str, default="../POLICE_data/dev.json")
+parser.add_argument("--test_path", type=str, default="../POLICE_data/dev.json")
 
 
 args = parser.parse_args()
@@ -69,8 +69,8 @@ def load_trained(args, model, optimizer=None):
     print("load safely")
 
 
-def get_loader(dataset, batch_size):
-    shuffle = False
+def get_loader(dataset, batch_size, shuffle=False):
+    shuffle = shuffle
     pin_memory = True
     loader = torch.utils.data.DataLoader(
         dataset=dataset,
@@ -96,7 +96,7 @@ def main():
     train_dataset = Dataset(args, args.train_path, "train")
     val_dataset = Dataset(args, args.dev_path, "val")
     batch_size = int(args.batch_size / args.gpus)
-    train_loader = get_loader(train_dataset, batch_size)
+    train_loader = get_loader(train_dataset, batch_size, shuffle=True)
     dev_loader = get_loader(val_dataset, batch_size)
 
     optimizer = Adafactor(
