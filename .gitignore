@@ -12,6 +12,8 @@ DST_police/logs
 DST_police/data
 DST_police/out
 
+POLICE_data
+*.sh
 # C extensions
 *.so
 

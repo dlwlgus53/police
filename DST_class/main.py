@@ -45,9 +45,9 @@ parser.add_argument(
 )
 
 """data"""
-parser.add_argument("--dev_path", type=str, default="../POLICE/dev_data.json")
-parser.add_argument("--train_path", type=str, default="../POLICE/train_data.json")
-parser.add_argument("--test_path", type=str, default="../POLICE/dev_data.json")
+parser.add_argument("--dev_path", type=str, default="../POLICE_data/dev_data.json")
+parser.add_argument("--train_path", type=str, default="../POLICE_data/POLICE/train_data.json")
+parser.add_argument("--test_path", type=str, default="../POLICE_data/POLICE/dev_data.json")
 
 
 args = parser.parse_args()
