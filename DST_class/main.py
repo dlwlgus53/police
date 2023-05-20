@@ -101,8 +101,8 @@ def main():
 
     optimizer = Adafactor(
         model.parameters(),
-        lr=1e-3,
-        eps=(1e-30, 1e-3),
+        lr=1e-5,
+        eps=(1e-30, 1e-5),
         clip_threshold=1.0,
         decay_rate=-0.8,
         beta1=None,

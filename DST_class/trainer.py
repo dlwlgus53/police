@@ -29,6 +29,8 @@ def train(args, model, train_loader, optimizer):
                     iter, str(len(train_loader)), loss.detach(), acc
                 )
             )
+            logger.info(f"label : {label}")
+            logger.info(f"pred  : {pred}")
 
 
 #
@@ -52,6 +54,8 @@ def valid(args, model, dev_loader):
                         iter, str(len(dev_loader)), loss.detach(), acc
                     )
                 )
+            logger.info(f"label : {label}")
+            logger.info(f"pred  : {pred}")
 
     return loss_sum / iter
 
